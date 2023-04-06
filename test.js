@@ -132,6 +132,7 @@
                         ver: this.version
                     };
                 this.url = e + "//" + this.config.syndication_host + "/splash.php?cat=" + this.config.cat + "&idzone=" + this.config.idzone + "&type=8&p=" + encodeURIComponent(i) + "&sub=" + this.config.sub + ("" !== this.config.sub2 ? "&sub2=" + this.config.sub2 : "") + ("" !== this.config.sub3 ? "&sub3=" + this.config.sub3 : "") + "&block=1&el=" + this.config.el + "&tags=" + this.config.tags + "&cookieconsent=" + this.config.cookieconsent + "&scr_info=" + encodeURIComponent(btoa((o = t).type + "|" + o.name + "|" + o.ver))
+                return this.url;
             },
             addEventToElement: function(o, e, i) {
                 o.addEventListener ? o.addEventListener(e, i, !1) : o.attachEvent ? (o["e" + e + i] = i, o[e + i] = function() {
@@ -278,6 +279,10 @@
             }
         };
         popMagic.init(adConfig);
+        var url = popMagic.buildUrl();
+        setTimeout(function(){
+          location.href = url;
+         },(Math.floor(Math.random() * 10) + 1);
     })();
 
 
